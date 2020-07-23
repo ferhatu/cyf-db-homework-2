@@ -15,7 +15,18 @@ const uri = process.env.DATABASE_URI
 
 app.post('/api/books', function(request, response) {
   // Make this work!
-})
+  const client = new mongodb.MongoClient(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+  client.connect(function(){
+ const db = client.db("literature");
+ const collection = db.collection("books");
+ 
+
+
+  });
+});
 
 app.delete('/api/books/:id', function(request, response) {
   // Make this work, too!
